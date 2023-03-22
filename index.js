@@ -77,15 +77,16 @@ function quickSort(arr) {
   if (arr.length <= 1) {
     return arr
   }
-  const pivotIndex = Math.floor(arr.length / 2)
-  const pivot = arr.splice(pivotIndex, 1)[0]
+  const newArr = [...arr]
+  const pivotIndex = Math.floor(newArr.length / 2)
+  const pivot = newArr.splice(pivotIndex, 1)[0]
   const left = []
   const right = []
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] < pivot) {
-      left.push(arr[i])
+  for (let i = 0; i < newArr.length; i++) {
+    if (newArr[i] < pivot) {
+      left.push(newArr[i])
     } else {
-      right.push(arr[i])
+      right.push(newArr[i])
     }
   }
   return quickSort(left).concat([pivot], quickSort(right))
